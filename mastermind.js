@@ -73,7 +73,7 @@ function displayGame(numRows) {
           handlePegClick(this, row, col);
         };
       })();
-      copy.appendChild(pegCopy);
+      copy.insertBefore(pegCopy, copy.lastElementChild);
     }
     copy.removeChild(pegTemplate);
     container.appendChild(copy);
