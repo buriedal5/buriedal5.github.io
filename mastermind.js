@@ -8,7 +8,15 @@ function handlePegClick(link, row, column) {
     currentRowColors[column] = currentColor;
     link.style.background = currentColor;
     if (isCurrentRowFilledIn()) {
-      link.parentNode.lastElementChild.style.visibility = 'visible';
+      checkBox = link.parentNode.lastElementChild;
+      checkBox.style.visibility = 'visible';
+      checkBox.onclick = (function() {
+        var element = checkBox;
+        return function() {
+          element.style.visibility = 'hidden';
+          currentRow++;
+        }
+      })();
     }
   }
 }
@@ -32,6 +40,10 @@ function handlePegUnhover(link, row, column) {
   if (row == currentRow) {
     link.style.background = currentRowColors[column];
   }
+}
+
+function checkCurrentRow() {
+  
 }
 
 function displayGame(numRows) {
