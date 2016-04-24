@@ -8,7 +8,7 @@ function initializeSecret() {
   var secret = new Array();
   for (var i = 0; i < 4; ++i) {
     var color = Math.floor(Math.random() * 6);
-    secret.push(color);
+    secret.push(colors[color]);
   }
   return secret;
 }
