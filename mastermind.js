@@ -54,6 +54,12 @@ function displayGame(numRows) {
   for (var i = 0; i < colors.length; ++i) {
     var copy = template.cloneNode(true);
     copy.style.background = colors[i];
+    copy.children[i].onclick = (function() {
+      var color = i;
+      return function() {
+        currentColor = color;
+      };
+    })();
     container.appendChild(copy);
   }
   container.removeChild(template);
