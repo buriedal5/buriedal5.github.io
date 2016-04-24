@@ -14,6 +14,12 @@ function handlePegHover(link, row, column) {
   }
 }
 
+function handlePegUnhover(link, row, column) {
+  if (row == currentRow) {
+    link.style.background = 'white';
+  }
+}
+
 function displayGame(numRows) {
   var container = document.getElementById("game-container");
   var template = container.firstElementChild;
@@ -24,6 +30,12 @@ function displayGame(numRows) {
         var row = i, col = j;
         return function() {
           handlePegHover(this, row, col);
+        };
+      })();
+      copy.children[j].onmouseout = (function() {
+        var row = i, col = j;
+        return function() {
+          handlePegUnhover(this, row, col);
         };
       })();
       copy.children[j].onclick = (function() {
