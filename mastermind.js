@@ -13,7 +13,7 @@ function displayGame(numRows) {
         return function() {
           handlePegClick(row, col);
         }
-      });
+      })();
     }
     container.appendChild(copy);
   }
