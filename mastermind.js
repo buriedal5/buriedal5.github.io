@@ -15,6 +15,7 @@ function handlePegClick(link, row, column) {
         return function() {
           element.style.visibility = 'hidden';
           currentRow++;
+          currentRowColors = ['white', 'white', 'white', 'white'];
         }
       })();
     }
