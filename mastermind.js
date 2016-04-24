@@ -48,4 +48,12 @@ function displayGame(numRows) {
     container.appendChild(copy);
   }
   container.removeChild(template);
+  
+  container = document.getElementById("palette");
+  template = container.firstElementChild;
+  for (var i = 0; i < colors.length; ++i) {
+    var copy = template.cloneNode(true);
+    copy.style.background = colors[i];
+  }
+  container.removeChild(template);
 }
