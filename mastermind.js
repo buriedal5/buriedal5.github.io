@@ -21,9 +21,9 @@ function displayGame(numRows) {
     var copy = template.cloneNode(true);
     for (var j = 0; j < 4; ++j) {
       copy.children[j].onmouseover = (function() {
-        var row = i, col = j, link = this;
+        var row = i, col = j;
         return function() {
-          handlePegHover(link, row, col);
+          handlePegHover(this, row, col);
         };
       })();
       copy.children[j].onclick = (function() {
