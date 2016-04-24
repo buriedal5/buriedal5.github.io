@@ -7,6 +7,11 @@ function displayGame(numRows) {
   var template = container.firstElementChild;
   for (var i = 0; i < numRows; ++i) {
     var copy = template.cloneNode(true);
+    for (var j = 0; j < 4; ++j) {
+      template.children[j].onclick = function() {
+        handlePegClick(i, j);
+      };
+    }
     container.appendChild(copy);
   }
   container.removeChild(template);
