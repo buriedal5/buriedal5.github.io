@@ -1,4 +1,4 @@
-function clickPeg(row, column) {
+function handleClickPeg(row, column) {
   window.alert("click " + row + ":" + column);
 }
 
