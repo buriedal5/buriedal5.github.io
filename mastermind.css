@@ -9,6 +9,7 @@
     text-align:center;
     text-decoration:none;
     background: #ffffff;
+    margin: 3px 3px 3px 3px;
 }
 .large-peg:hover {
     background: #ff0000;
