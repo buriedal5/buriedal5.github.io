@@ -43,6 +43,7 @@
     text-decoration:none;
     background: #ffffff;
     margin: 2px 2px 2px 2px;
+    visibility: hidden;
 }
 
 .check-button {
