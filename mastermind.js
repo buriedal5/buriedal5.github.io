@@ -2,6 +2,16 @@ var currentRow = 0;
 var currentColor = 'red';
 var colors = ['red', 'green', 'blue',  'yellow', 'purple', 'orange'];
 var currentRowColors = ['white', 'white', 'white', 'white']
+var secret = initializeSecret();
+
+function initializeSecret() {
+  var secret = new Array();
+  for (int i = 0; i < 4; ++i) {
+    var color = Math.floor(Math.random() * 6);
+    secret.push(color);
+  }
+  return secret;
+}
 
 function handlePegClick(link, row, column) {
   if (row == currentRow) {
@@ -13,6 +23,7 @@ function handlePegClick(link, row, column) {
       checkBox.onclick = (function() {
         var element = checkBox;
         return function() {
+          window.alert("check:" + checkCurrentRow());
           element.style.visibility = 'hidden';
           currentRow++;
           currentRowColors = ['white', 'white', 'white', 'white'];
@@ -44,7 +55,37 @@ function handlePegUnhover(link, row, column) {
 }
 
 function checkCurrentRow() {
-  
+  var secretHistogram = new Object();
+  var guessHistogram = new Object();
+  var exact = 0, partial = 0;
+  for (int i = 0; i < 4; ++i) {
+    if (currentRowColors[i] == secret[i]) {
+      ++exact;
+    } else {
+      incrementColor(secretHistogram, secret[i]);
+      incrementColor(guessHistogram, currentRowColors[i]);
+    }
+  }
+  for (int i = 0; i < colors.length; ++i) {
+    partial += minColor(secretHistogram, guessHistogram, color);
+  }
+  return [exact, partial];
+}
+
+function incrementColor(histogram, color) {
+  if (typeof histogram[color] == "undefined") {
+    histogram[color] = 1;
+  } else {
+    histogram[color]++;
+  }
+}
+
+function minColor(histogram1, histogram2, color) {
+  if (typeof histogram1[color] == "undefined"
+      || typeof histogram2[color] == "undefined") {
+    return 0;
+  }
+  return Math.min(histogram1[color], histogram2[color]);
 }
 
 function displayGame(numRows) {
