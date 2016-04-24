@@ -18,7 +18,7 @@ function handlePegClick(link, row, column) {
     currentRowColors[column] = currentColor;
     link.style.background = currentColor;
     if (isCurrentRowFilledIn()) {
-      checkBox = link.parentNode.lastElementChild;
+      checkBox = link.parentNode.firstElementChild;
       checkBox.style.visibility = 'visible';
       checkBox.onclick = (function() {
         var element = checkBox;
