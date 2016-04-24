@@ -30,6 +30,21 @@
     background: #ffffff;
     margin: 3px 3px 3px 3px;
 }
+
+.check-peg {
+    display:block;
+    width:20px;
+    height:20px;
+    line-height:40px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    color:#ffffff;
+    text-align:center;
+    text-decoration:none;
+    background: #ffffff;
+    margin: 2px 2px 2px 2px;
+}
+
 .check-button {
     visibility: hidden;
 }
