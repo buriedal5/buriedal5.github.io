@@ -1,10 +1,12 @@
 var currentRow = 0;
 var currentColor = 0;
 var colors = ['red', 'green', 'blue',  'yellow', 'purple', 'orange'];
+var currentRow = ['white', 'white', 'white', 'white']
 
-function handlePegClick(row, column) {
+function handlePegClick(link, row, column) {
   if (row == currentRow) {
-    window.alert("click " + row + ":" + column);
+    currentRow[column] = colors[currentColor];
+    link.style.background = colors[currentColor];
   }
 }
 
@@ -16,7 +18,7 @@ function handlePegHover(link, row, column) {
 
 function handlePegUnhover(link, row, column) {
   if (row == currentRow) {
-    link.style.background = 'white';
+    link.style.background = currentRow[column];
   }
 }
 
@@ -41,7 +43,7 @@ function displayGame(numRows) {
       copy.children[j].onclick = (function() {
         var row = i, col = j;
         return function() {
-          handlePegClick(row, col);
+          handlePegClick(this, row, col);
         };
       })();
     }
