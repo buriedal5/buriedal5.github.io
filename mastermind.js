@@ -75,7 +75,7 @@ function displayGame(numRows) {
       })();
       copy.appendChild(pegCopy);
     }
-    copy.removeChid(pegTemplate);
+    copy.removeChild(pegTemplate);
     container.appendChild(copy);
   }
   container.removeChild(template);
