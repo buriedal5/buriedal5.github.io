@@ -11,3 +11,22 @@
     background: #ffffff;
     margin: 3px 3px 3px 3px;
 }
+#palette {
+    display:inline-block;
+}
+#game-container {
+    display:inline-block;
+}
+.palette-selector {
+    display:block;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    color:#ffffff;
+    text-align:center;
+    text-decoration:none;
+    background: #ffffff;
+    margin: 3px 3px 3px 3px;
+}
