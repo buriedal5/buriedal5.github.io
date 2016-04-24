@@ -23,8 +23,20 @@ function handlePegClick(link, row, column) {
       checkBox.onclick = (function() {
         var element = checkBox;
         return function() {
-          window.alert("check:" + checkCurrentRow());
-          element.style.visibility = 'hidden';
+          var checkResult = checkCurrentRow();
+          var container = element.parentNode;
+          container.removeChild(element);
+          var template = container.firstElementchild;
+          for (var i = 0; i < checkResult[0]; ++i) {
+            var copy = template.cloneNode(true);
+            copy.style.background = "red";
+            container.appendChild(copy);
+          }
+          for (var i = 0; i < checkResult[1]; ++i) {
+            var copy = template.cloneNode(true);
+            copy.style.background = "white";
+            container.appendChild(copy);
+          }
           currentRow++;
           currentRowColors = ['white', 'white', 'white', 'white'];
         }
