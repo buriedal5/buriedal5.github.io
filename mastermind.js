@@ -27,6 +27,9 @@ function displayGame(numRows) {
   var template = container.firstElementChild;
   for (var i = 0; i < numRows; ++i) {
     var copy = template.cloneNode(true);
+    if (i == currentRow) {
+      copy.lastElementChild.style.visibility = 'visible';
+    }
     for (var j = 0; j < 4; ++j) {
       copy.children[j].onmouseover = (function() {
         var row = i, col = j;
