@@ -1,7 +1,7 @@
 var currentRow = 0;
 var currentColor = 0;
 var colors = ['red', 'green', 'blue',  'yellow', 'purple', 'orange'];
-var currentRow = ['white', 'white', 'white', 'white']
+var currentRow = ['white', 'white', 'white', 'white'];
 
 function handlePegClick(link, row, column) {
   if (row == currentRow) {
