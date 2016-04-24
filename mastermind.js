@@ -1,24 +1,24 @@
 var currentRow = 0;
-var currentColor = 0;
+var currentColor = 'red';
 var colors = ['red', 'green', 'blue',  'yellow', 'purple', 'orange'];
-var currentRow = ['white', 'white', 'white', 'white'];
+var currentRowColors = ['white', 'white', 'white', 'white']
 
 function handlePegClick(link, row, column) {
   if (row == currentRow) {
-    currentRow[column] = colors[currentColor];
-    link.style.background = colors[currentColor];
+    currentRowColors[column] = currentColor;
+    link.style.background = currentColor;
   }
 }
 
 function handlePegHover(link, row, column) {
   if (row == currentRow) {
-    link.style.background = colors[currentColor];
+    link.style.background = currentColor;
   }
 }
 
 function handlePegUnhover(link, row, column) {
   if (row == currentRow) {
-    link.style.background = currentRow[column];
+    link.style.background = currentRowColors[column];
   }
 }
 
@@ -57,7 +57,7 @@ function displayGame(numRows) {
     var copy = template.cloneNode(true);
     copy.style.background = colors[i];
     copy.onclick = (function() {
-      var color = i;
+      var color = colors[i];
       return function() {
         currentColor = color;
       };
