@@ -43,16 +43,20 @@
     text-decoration:none;
     background: #ffffff;
     margin: 2px 2px 2px 2px;
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
 
 .check-button {
-    /*visibility: hidden;*/
+    visibility: hidden;
+}
+.check-button img {
+    width: 50px;
+    height: 50px;
 }
 .check-region {
     width: 50px;
     height: 50px;
 }
 #solution {
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
