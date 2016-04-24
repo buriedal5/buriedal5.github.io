@@ -1,6 +1,6 @@
 var currentRow = 0;
 var currentColor = 0;
-var colors = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0x00ffff]
+var colors = ['red', 'green', 'blue',  'yellow', 'purple', 'orange'];
 
 function handlePegClick(row, column) {
   if (row == currentRow) {
