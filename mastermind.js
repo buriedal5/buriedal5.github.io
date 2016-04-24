@@ -52,26 +52,30 @@ function displayGame(numRows) {
   var template = container.firstElementChild;
   for (var i = 0; i < numRows; ++i) {
     var copy = template.cloneNode(true);
+    var pegTemplate = copy.firstElementChild;
     for (var j = 0; j < 4; ++j) {
-      copy.children[j].onmouseover = (function() {
+      var pegCopy = pegTemplate.cloneNode(true);
+      pegCopy.onmouseover = (function() {
         var row = i, col = j;
         return function() {
           handlePegHover(this, row, col);
         };
       })();
-      copy.children[j].onmouseout = (function() {
+      pegCopy.onmouseout = (function() {
         var row = i, col = j;
         return function() {
           handlePegUnhover(this, row, col);
         };
       })();
-      copy.children[j].onclick = (function() {
+      pegCopy.onclick = (function() {
         var row = i, col = j;
         return function() {
           handlePegClick(this, row, col);
         };
       })();
+      copy.appendChild(pegCopy);
     }
+    copy.removeChid(pegTemplate);
     container.appendChild(copy);
   }
   container.removeChild(template);
