@@ -58,7 +58,7 @@ function checkCurrentRow() {
   var secretHistogram = new Object();
   var guessHistogram = new Object();
   var exact = 0, partial = 0;
-  for (int i = 0; i < 4; ++i) {
+  for (var i = 0; i < 4; ++i) {
     if (currentRowColors[i] == secret[i]) {
       ++exact;
     } else {
@@ -66,7 +66,7 @@ function checkCurrentRow() {
       incrementColor(guessHistogram, currentRowColors[i]);
     }
   }
-  for (int i = 0; i < colors.length; ++i) {
+  for (var i = 0; i < colors.length; ++i) {
     partial += minColor(secretHistogram, guessHistogram, color);
   }
   return [exact, partial];
