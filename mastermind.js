@@ -8,11 +8,12 @@ function displayGame(numRows) {
   for (var i = 0; i < numRows; ++i) {
     var copy = template.cloneNode(true);
     for (var j = 0; j < 4; ++j) {
-      copy.children[j].onclick = function() {
+      copy.children[j].onclick = (function() {
         var row = i, col = j;
         return function() {
           handlePegClick(row, col);
-        }};
+        }
+      });
     }
     container.appendChild(copy);
   }
