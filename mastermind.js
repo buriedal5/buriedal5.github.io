@@ -6,7 +6,7 @@ var secret = initializeSecret();
 
 function initializeSecret() {
   var secret = new Array();
-  for (int i = 0; i < 4; ++i) {
+  for (var i = 0; i < 4; ++i) {
     var color = Math.floor(Math.random() * 6);
     secret.push(color);
   }
