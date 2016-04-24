@@ -7,7 +7,19 @@ function handlePegClick(link, row, column) {
   if (row == currentRow) {
     currentRowColors[column] = currentColor;
     link.style.background = currentColor;
+    if (isCurrentRowFilledIn) {
+      copy.lastElementChild.style.visibility = 'visible';
+    }
   }
+}
+
+function isCurrentRowFilledIn() {
+  for (var i = 0; i < currentRowColors.length; ++i) {
+    if (currentRowColors[i] == 'white') {
+      return false;
+    }
+  }
+  return true;
 }
 
 function handlePegHover(link, row, column) {
@@ -27,9 +39,6 @@ function displayGame(numRows) {
   var template = container.firstElementChild;
   for (var i = 0; i < numRows; ++i) {
     var copy = template.cloneNode(true);
-    if (i == currentRow) {
-      copy.lastElementChild.style.visibility = 'visible';
-    }
     for (var j = 0; j < 4; ++j) {
       copy.children[j].onmouseover = (function() {
         var row = i, col = j;
