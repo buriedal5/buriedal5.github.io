@@ -6,7 +6,7 @@ function displayGame(numRows) {
   var container = document.getElementById("game-container");
   var template = container.firstElementChild;
   for (var i = 0; i < numRows; ++i) {
-    var copy = template.cloneNode();
+    var copy = template.cloneNode(true);
     container.appendChild(copy);
   }
   container.removeChild(template);
