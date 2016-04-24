@@ -47,6 +47,7 @@
 }
 
 .check-button {
+    display: inline-block;
     visibility: hidden;
 }
 .check-button img {
@@ -54,6 +55,7 @@
     height: 50px;
 }
 .check-region {
+    display:inline-block;
     width: 50px;
     height: 50px;
 }
