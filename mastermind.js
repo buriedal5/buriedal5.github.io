@@ -7,7 +7,7 @@ function handlePegClick(link, row, column) {
   if (row == currentRow) {
     currentRowColors[column] = currentColor;
     link.style.background = currentColor;
-    if (isCurrentRowFilledIn) {
+    if (isCurrentRowFilledIn()) {
       link.parentNode.lastElementChild.style.visibility = 'visible';
     }
   }
