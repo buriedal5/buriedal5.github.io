@@ -67,7 +67,7 @@ function checkCurrentRow() {
     }
   }
   for (var i = 0; i < colors.length; ++i) {
-    partial += minColor(secretHistogram, guessHistogram, color);
+    partial += minColor(secretHistogram, guessHistogram, colors[i]);
   }
   return [exact, partial];
 }
