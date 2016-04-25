@@ -40,10 +40,7 @@ function handlePegClick(link, row, column) {
             container.appendChild(copy);
           }
           container.removeChild(template);
-          if (checkResult[0] == 4) {
-            currentRow = -1;
-            showSolution();
-          } else if (currentRow == 12) {
+          if (checkResult[0] == 4 || currentRow == 11) {
             currentRow = -1;
             showSolution();
           } else {
@@ -58,7 +55,7 @@ function handlePegClick(link, row, column) {
 
 function showSolution() {
   var container = document.getElementById("solution");
-  var template = container.firstElementChild();
+  var template = container.firstElementChild;
   for (var i = 0; i < secret.length; ++i) {
     var copy = template.cloneNode(true);
     copy.style.background = secret[i];
