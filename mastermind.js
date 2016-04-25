@@ -62,6 +62,7 @@ function showSolution() {
   for (var i = 0; i < secret.length; ++i) {
     var copy = template.cloneNode(true);
     copy.style.background = secret[i];
+    copy.style.visibility = "visible";
     container.appendChild(copy);
   }
   container.removeChild(template);
