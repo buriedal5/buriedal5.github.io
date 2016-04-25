@@ -1,26 +1,28 @@
 <html>
-<head><title>Mastermind Game</title></head>
-<script type="text/javascript" src="mastermind.js"></script>
-<link rel="stylesheet" type="text/css" href="mastermind.css">
+<head>
+  <title>Mastermind Game</title></head>
+  <script type="text/javascript" src="mastermind.js"></script>
+  <link rel="stylesheet" type="text/css" href="mastermind.css">
 </head>
-<body onload="displayGame(12)">
-  <div>
+<body onload="displayGame();">
+<div>
   <div id="game-container">
-  <div class="peg-row">
-  <a class="large-peg"></a>
-  <div class="check-region">
-  <a class="check-button"><img src="checkmark.png"></a>
-  <a class="check-peg"></a>
-  </div>
-  </div>
+    <div class="peg-row">
+      <a class="large-peg"></a>
+      <div class="check-region">
+        <a class="check-button">
+          <img src="checkmark.png">
+        </a>
+        <a class="check-peg"></a>
+      </div>
+    </div>
   </div>
   <div id="palette">
     <a class="palette-selector"></a>
   </div>
-  </div>
-  <div id="solution">
+</div>
+<div id="solution">
   <a class="large-peg"></a>
-  </div>
 </div>
 </body>
 </html>
