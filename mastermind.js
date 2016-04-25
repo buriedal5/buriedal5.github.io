@@ -1,5 +1,6 @@
 var currentRow = 0;
 var currentColor = 'red';
+var currentColorIndex = 0;
 var colors = ['red', 'green', 'blue',  'yellow', 'purple', 'orange'];
 var currentRowColors = ['white', 'white', 'white', 'white']
 var secret = initializeSecret();
@@ -158,10 +159,17 @@ function displayGame(numRows) {
   for (var i = 0; i < colors.length; ++i) {
     var copy = template.cloneNode(true);
     copy.style.background = colors[i];
+    if (i == currentColorIndex) {
+      copy.style.borderWidth = "4px";
+    }
     copy.onclick = (function() {
-      var color = colors[i];
+      var colorIndex = i;
+      var parent = container;
       return function() {
-        currentColor = color;
+        parent.children[currentColorIndex].style.borderWidth = "2px";
+        currentColorIndex = colorIndex;
+        currentColor = colors[colorIndex];
+        parent.children[colorIndex].style.borderWidth = "4px";
       };
     })();
     container.appendChild(copy);
