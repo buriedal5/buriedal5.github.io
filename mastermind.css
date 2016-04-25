@@ -1,3 +1,7 @@
+#game-container {
+    display:inline-block;
+}
+
 .large-peg {
     display:inline-block;
     width:40px;
@@ -11,12 +15,11 @@
     background: #ffffff;
     margin: 3px 3px 3px 3px;
 }
+
 #palette {
     display:inline-block;
 }
-#game-container {
-    display:inline-block;
-}
+
 .palette-selector {
     display:block;
     width:30px;
@@ -46,18 +49,24 @@
     visibility: hidden;
 }
 
+.check-region {
+    display:inline-block;
+    vertical-align: top;
+    padding-top: 8px;
+    width: 40px;
+}
+
 .check-button {
     display: inline-block;
     visibility: hidden;
 }
+
 .check-button img {
     width: 30px;
     height: 30px;
-    margin: 3px 3px 3px 3px;
+    margin: 2px 2px 2px 2px;
 }
-.check-region {
-    display:inline-block;
-}
+
 #solution {
     visibility: hidden;
 }
