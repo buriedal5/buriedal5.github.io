@@ -4,7 +4,8 @@ var currentRow = 0;
 var currentColor = 'red';
 var currentColorIndex = 0;
 var colors = ['red', 'green', 'blue',  'yellow', 'purple', 'orange'];
-var currentRowColors = ['white', 'white', 'white', 'white']
+var currentRowColors = new Array();
+currentRowColors.fill('white', 0, numColumns);
 var secret = initializeSecret();
 
 function initializeSecret() {
