@@ -30,11 +30,13 @@ function handlePegClick(link, row, column) {
           for (var i = 0; i < checkResult[0]; ++i) {
             var copy = template.cloneNode(true);
             copy.style.background = "red";
+            copy.style.visibility = "visible";
             container.appendChild(copy);
           }
           for (var i = 0; i < checkResult[1]; ++i) {
             var copy = template.cloneNode(true);
             copy.style.background = "white";
+            copy.style.visibility = "visible";
             container.appendChild(copy);
           }
           currentRow++;
