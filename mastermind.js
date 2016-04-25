@@ -1,3 +1,5 @@
+var numRows = 12;
+var numColumns = 4;
 var currentRow = 0;
 var currentColor = 'red';
 var currentColorIndex = 0;
@@ -7,8 +9,8 @@ var secret = initializeSecret();
 
 function initializeSecret() {
   var secret = new Array();
-  for (var i = 0; i < 4; ++i) {
-    var color = Math.floor(Math.random() * 6);
+  for (var i = 0; i < numColumns; ++i) {
+    var color = Math.floor(Math.random() * colors.length);
     secret.push(colors[color]);
   }
   return secret;
@@ -41,7 +43,7 @@ function handlePegClick(link, row, column) {
             container.appendChild(copy);
           }
           container.removeChild(template);
-          if (checkResult[0] == 4 || currentRow == 11) {
+          if (checkResult[0] == numColumns || currentRow == numRows - 1) {
             currentRow = -1;
             showSolution();
           } else {
@@ -91,7 +93,7 @@ function checkCurrentRow() {
   var secretHistogram = new Object();
   var guessHistogram = new Object();
   var exact = 0, partial = 0;
-  for (var i = 0; i < 4; ++i) {
+  for (var i = 0; i < numColumns; ++i) {
     if (currentRowColors[i] == secret[i]) {
       ++exact;
     } else {
@@ -121,13 +123,13 @@ function minColor(histogram1, histogram2, color) {
   return Math.min(histogram1[color], histogram2[color]);
 }
 
-function displayGame(numRows) {
+function displayGame() {
   var container = document.getElementById("game-container");
   var template = container.firstElementChild;
   for (var i = 0; i < numRows; ++i) {
     var copy = template.cloneNode(true);
     var pegTemplate = copy.firstElementChild;
-    for (var j = 0; j < 4; ++j) {
+    for (var j = 0; j < numColumns; ++j) {
       var pegCopy = pegTemplate.cloneNode(true);
       pegCopy.onmouseover = (function() {
         var row = i, col = j;
