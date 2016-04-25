@@ -40,12 +40,31 @@ function handlePegClick(link, row, column) {
             container.appendChild(copy);
           }
           container.removeChild(template);
-          currentRow++;
-          currentRowColors = ['white', 'white', 'white', 'white'];
+          if (checkResult[0] == 4) {
+            currentRow = -1;
+            showSolution();
+          } else if (currentRow == 12) {
+            currentRow = -1;
+            showSolution();
+          } else {
+            currentRow++;
+            currentRowColors = ['white', 'white', 'white', 'white'];
+          }
         }
       })();
     }
   }
+}
+
+function showSolution() {
+  var container = document.getElementById("solution");
+  var template = container.firstElementChild();
+  for (int i = 0; i < secret.length; ++i) {
+    var copy = template.cloneNode(true);
+    copy.style.background = secret[i];
+    container.appendChild(copy);
+  }
+  container.removeChild(template);
 }
 
 function isCurrentRowFilledIn() {
