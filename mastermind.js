@@ -39,6 +39,7 @@ function handlePegClick(link, row, column) {
             copy.style.visibility = "visible";
             container.appendChild(copy);
           }
+          container.removeChild(template);
           currentRow++;
           currentRowColors = ['white', 'white', 'white', 'white'];
         }
