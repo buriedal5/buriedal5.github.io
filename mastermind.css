@@ -57,8 +57,6 @@
 }
 .check-region {
     display:inline-block;
-    width: 40px;
-    height: 40px;
 }
 #solution {
     visibility: hidden;
