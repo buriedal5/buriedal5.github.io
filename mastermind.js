@@ -18,7 +18,7 @@ function handlePegClick(link, row, column) {
     currentRowColors[column] = currentColor;
     link.style.background = currentColor;
     if (isCurrentRowFilledIn()) {
-      checkBox = link.parentNode.firstElementChild;
+      checkBox = link.parentNode.lastElementChild.firstElementChild;
       checkBox.style.visibility = 'visible';
       checkBox.onclick = (function() {
         var element = checkBox;
@@ -26,7 +26,7 @@ function handlePegClick(link, row, column) {
           var checkResult = checkCurrentRow();
           var container = element.parentNode;
           container.removeChild(element);
-          var template = container.firstElementchild;
+          var template = container.firstElementChild;
           for (var i = 0; i < checkResult[0]; ++i) {
             var copy = template.cloneNode(true);
             copy.style.background = "red";
