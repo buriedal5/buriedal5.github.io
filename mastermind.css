@@ -45,14 +45,14 @@
     text-align:center;
     text-decoration:none;
     background: #ffffff;
-    margin: 2px 2px 2px 2px;
+    margin: 3px 3px 3px 3px;
     visibility: hidden;
 }
 
 .check-region {
     display:inline-block;
     vertical-align: top;
-    padding-top: 8px;
+    padding-top: 6px;
     width: 60px;
 }
 
