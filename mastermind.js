@@ -77,8 +77,8 @@ function handleCheckClick(element) {
   var container = element.parentNode;
   container.removeChild(element);
   var template = container.firstElementChild;
-  addPegs(checkResult[0], template, "red");
-  addPegs(checkResult[1], template, "white");
+  addPegs(checkResult[0], container, template, "red");
+  addPegs(checkResult[1], container, template, "white");
   container.removeChild(template);
   if (checkResult[0] == numColumns || currentRow == numRows - 1) {
     currentRow = -1;
@@ -89,7 +89,7 @@ function handleCheckClick(element) {
   }
 }
 
-function addPegs(count, template, color) {
+function addPegs(count, container, template, color) {
   for (var i = 0; i < count; ++i) {
     var copy = template.cloneNode(true);
     copy.style.background = color;
