@@ -1,8 +1,8 @@
 .large-peg {
     display:inline-block;
-    width:50px;
-    height:50px;
-    line-height:50px;
+    width:40px;
+    height:40px;
+    line-height:40px;
     border: 2px solid #000000;
     border-radius: 50%;
     color:#ffffff;
@@ -19,9 +19,9 @@
 }
 .palette-selector {
     display:block;
-    width:40px;
-    height:40px;
-    line-height:40px;
+    width:30px;
+    height:30px;
+    line-height:30px;
     border: 2px solid #000000;
     border-radius: 50%;
     color:#ffffff;
@@ -33,9 +33,9 @@
 
 .check-peg {
     display: inline-block;
-    width:20px;
-    height:20px;
-    line-height:20px;
+    width:10px;
+    height:10px;
+    line-height:10px;
     border: 2px solid #000000;
     border-radius: 50%;
     color:#ffffff;
@@ -51,14 +51,14 @@
     visibility: hidden;
 }
 .check-button img {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     margin: 3px 3px 3px 3px;
 }
 .check-region {
     display:inline-block;
-    width: 62px;
-    height: 62px;
+    width: 40px;
+    height: 40px;
 }
 #solution {
     visibility: hidden;
