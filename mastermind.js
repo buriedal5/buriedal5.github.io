@@ -4,9 +4,7 @@ var currentRow = 0;
 var currentColor = 'red';
 var currentColorIndex = 0;
 var colors = ['red', 'green', 'blue',  'yellow', 'purple', 'orange'];
-var currentRowColors = new Array();
-currentRowColors.length = numColumns;
-currentRowColors.fill('white', 0, numColumns);
+var currentRowColors = initializeRowColors();
 var secret = initializeSecret();
 
 function initializeSecret() {
@@ -16,6 +14,13 @@ function initializeSecret() {
     secret.push(colors[color]);
   }
   return secret;
+}
+
+function initializeRowColors() {
+  var rowColors = new Array();
+  rowColors.length = numColumns;
+  rowColors.fill('white');
+  return rowColors;
 }
 
 function displayGame() {
@@ -87,7 +92,7 @@ function handleCheckClick(element) {
     showSolution();
   } else {
     currentRow++;
-    currentRowColors = ['white', 'white', 'white', 'white'];
+    currentRowColors = initializeRowColors();
   }
 }
 
