@@ -59,7 +59,7 @@ function handlePegClick(link, row, column) {
 function showSolution() {
   var container = document.getElementById("solution");
   var template = container.firstElementChild();
-  for (int i = 0; i < secret.length; ++i) {
+  for (var i = 0; i < secret.length; ++i) {
     var copy = template.cloneNode(true);
     copy.style.background = secret[i];
     container.appendChild(copy);
