@@ -16,6 +16,45 @@ function initializeSecret() {
   return secret;
 }
 
+function displayGame() {
+  displayRows();
+  displayPalette();
+}
+
+function displayRows() {
+    var container = document.getElementById("game-container");
+  var template = container.firstElementChild;
+  for (var i = 0; i < numRows; ++i) {
+    var copy = template.cloneNode(true);
+    var pegTemplate = copy.firstElementChild;
+    for (var j = 0; j < numColumns; ++j) {
+      var pegCopy = pegTemplate.cloneNode(true);
+      pegCopy.onmouseover = (function() {
+        var row = i, col = j;
+        return function() {
+          handlePegHover(this, row, col);
+        };
+      })();
+      pegCopy.onmouseout = (function() {
+        var row = i, col = j;
+        return function() {
+          handlePegUnhover(this, row, col);
+        };
+      })();
+      pegCopy.onclick = (function() {
+        var row = i, col = j;
+        return function() {
+          handlePegClick(this, row, col);
+        };
+      })();
+      copy.insertBefore(pegCopy, copy.lastElementChild);
+    }
+    copy.removeChild(pegTemplate);
+    container.appendChild(copy);
+  }
+  container.removeChild(template);
+}
+
 function handlePegClick(link, row, column) {
   if (row == currentRow) {
     currentRowColors[column] = currentColor;
@@ -26,33 +65,36 @@ function handlePegClick(link, row, column) {
       checkBox.onclick = (function() {
         var element = checkBox;
         return function() {
-          var checkResult = checkCurrentRow();
-          var container = element.parentNode;
-          container.removeChild(element);
-          var template = container.firstElementChild;
-          for (var i = 0; i < checkResult[0]; ++i) {
-            var copy = template.cloneNode(true);
-            copy.style.background = "red";
-            copy.style.visibility = "visible";
-            container.appendChild(copy);
-          }
-          for (var i = 0; i < checkResult[1]; ++i) {
-            var copy = template.cloneNode(true);
-            copy.style.background = "white";
-            copy.style.visibility = "visible";
-            container.appendChild(copy);
-          }
-          container.removeChild(template);
-          if (checkResult[0] == numColumns || currentRow == numRows - 1) {
-            currentRow = -1;
-            showSolution();
-          } else {
-            currentRow++;
-            currentRowColors = ['white', 'white', 'white', 'white'];
-          }
+          handleCheckClick(element);
         }
       })();
     }
+  }
+}
+
+function handleCheckClick(element) {
+  var checkResult = checkCurrentRow();
+  var container = element.parentNode;
+  container.removeChild(element);
+  var template = container.firstElementChild;
+  addPegs(checkResult[0], template, "red");
+  addPegs(checkResult[1], template, "white");
+  container.removeChild(template);
+  if (checkResult[0] == numColumns || currentRow == numRows - 1) {
+    currentRow = -1;
+    showSolution();
+  } else {
+    currentRow++;
+    currentRowColors = ['white', 'white', 'white', 'white'];
+  }
+}
+
+function addPegs(count, template, color) {
+  for (var i = 0; i < count; ++i) {
+    var copy = template.cloneNode(true);
+    copy.style.background = color;
+    copy.style.visibility = "visible";
+    container.appendChild(copy);
   }
 }
 
@@ -75,18 +117,6 @@ function isCurrentRowFilledIn() {
     }
   }
   return true;
-}
-
-function handlePegHover(link, row, column) {
-  if (row == currentRow) {
-    link.style.background = currentColor;
-  }
-}
-
-function handlePegUnhover(link, row, column) {
-  if (row == currentRow) {
-    link.style.background = currentRowColors[column];
-  }
 }
 
 function checkCurrentRow() {
@@ -123,39 +153,19 @@ function minColor(histogram1, histogram2, color) {
   return Math.min(histogram1[color], histogram2[color]);
 }
 
-function displayGame() {
-  var container = document.getElementById("game-container");
-  var template = container.firstElementChild;
-  for (var i = 0; i < numRows; ++i) {
-    var copy = template.cloneNode(true);
-    var pegTemplate = copy.firstElementChild;
-    for (var j = 0; j < numColumns; ++j) {
-      var pegCopy = pegTemplate.cloneNode(true);
-      pegCopy.onmouseover = (function() {
-        var row = i, col = j;
-        return function() {
-          handlePegHover(this, row, col);
-        };
-      })();
-      pegCopy.onmouseout = (function() {
-        var row = i, col = j;
-        return function() {
-          handlePegUnhover(this, row, col);
-        };
-      })();
-      pegCopy.onclick = (function() {
-        var row = i, col = j;
-        return function() {
-          handlePegClick(this, row, col);
-        };
-      })();
-      copy.insertBefore(pegCopy, copy.lastElementChild);
-    }
-    copy.removeChild(pegTemplate);
-    container.appendChild(copy);
+function handlePegHover(link, row, column) {
+  if (row == currentRow) {
+    link.style.background = currentColor;
   }
-  container.removeChild(template);
-  
+}
+
+function handlePegUnhover(link, row, column) {
+  if (row == currentRow) {
+    link.style.background = currentRowColors[column];
+  }
+}
+
+function displayPalette() {
   container = document.getElementById("palette");
   template = container.firstElementChild;
   for (var i = 0; i < colors.length; ++i) {
@@ -168,13 +178,17 @@ function displayGame() {
       var colorIndex = i;
       var parent = container;
       return function() {
-        parent.children[currentColorIndex].style.borderWidth = "2px";
-        currentColorIndex = colorIndex;
-        currentColor = colors[colorIndex];
-        parent.children[colorIndex].style.borderWidth = "4px";
+        handlePaletteClick(colorIndex, parent);
       };
     })();
     container.appendChild(copy);
   }
   container.removeChild(template);
+}
+
+function handlePaletteClick(colorIndex, parent) {
+  parent.children[currentColorIndex].style.borderWidth = "2px";
+  currentColorIndex = colorIndex;
+  currentColor = colors[colorIndex];
+  parent.children[colorIndex].style.borderWidth = "4px";
 }
