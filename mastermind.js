@@ -1,5 +1,5 @@
 var numRows = 12;
-var numColumns = 6;
+var numColumns = 4;
 var currentRow = 0;
 var currentColor = 'red';
 var currentColorIndex = 0;
