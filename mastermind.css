@@ -16,7 +16,7 @@
     width: 40px;
     height: 40px;
     line-height: 40px;
-    border: 2px solid #000000;
+    border: 2px inset #000000;
     border-radius: 50%;
     color: #ffffff;
     text-align: center;
@@ -34,7 +34,7 @@
     width: 30px;
     height: 30px;
     line-height: 30px;
-    border: 2px solid #000000;
+    border: 2px inset #000000;
     border-radius: 50%;
     color: #ffffff;
     text-align: center;
@@ -51,7 +51,7 @@
     width: 10px;
     height: 10px;
     line-height: 10px;
-    border: 2px solid #000000;
+    border: 2px inset #000000;
     border-radius: 50%;
     color: #ffffff;
     text-align: center;
