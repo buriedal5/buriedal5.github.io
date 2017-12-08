@@ -1,0 +1,26 @@
+Mastermind Board Game
+=====================
+https://en.wikipedia.org/wiki/Mastermind_(board_game)#/media/File:Mastermind.jpg
+
+Sample Game
+-----------
+Available Colors:
+[G]reen
+[B]lue
+[O]range
+[P]urple
+[R]ed
+[Y]ellow
+
+Orange peg = Exact = Matches position and color
+White peg = Partial = Matches color only
+
+Scoring: (Exact, Partial)
+
+Secret:  G B O P
+Guess 1: Y Y B B (0, 1)
+Guess 2: P O O Y (1, 1)
+Guess 3: G P G Y (1, 1)
+Guess 4: R R P Y (0, 1)
+Guess 5: B O G P (1, 3)
+Guess 6: G B O P (4, 0)
