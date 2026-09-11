@@ -10,23 +10,28 @@
 <div><b>She gave</b> the book <i>to me</i></div>
 <div><a href="#"><b>This is a formatted</b> <i>link</i>.</a></div>
 <div>
-  <svg version="1.1" viewBox="-50 -100 100 120" xmlns="http://www.w3.org/2000/svg">
-      <switch font-family="DejaVu Sans" font-size="10px" text-anchor="middle">
-	    <text systemLanguage="gem">♂</text>
-	    <text systemLanguage="gew">♀</text>
-	    <text systemLanguage="gei">⚥</text>
-     	<text systemLanguage="geu">⚲</text>
-	    <text systemLanguage="geg">☿</text>
-    	<text systemLanguage="gen">⚪</text>
-    	<text systemLanguage="get">⚧</text>
-    	<g systemLanguage="ged">
-    		<text y="10" font-size="50px" font-weight="bold">d</text>
-    		<circle cx="2.5" cy="-57.5" r="22.5" fill="none" stroke="#000" stroke-width="9"/>
-    		<path d="m-14-74 33 33m0-33-33 33" fill="none" stroke="#000" stroke-width="7"/>
-    	</g>
-    	<text>?</text>
-     </switch>
-  </svg>
+<svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .small {
+      font: italic 13px sans-serif;
+    }
+    .heavy {
+      font: bold 30px sans-serif;
+    }
+
+    /* Note that the color of the text is set with the    *
+     * fill property, the color property is for HTML only */
+    .Rrrrr {
+      font: italic 40px serif;
+      fill: red;
+    }
+  </style>
+
+  <text x="20" y="35" class="small">My</text>
+  <text x="40" y="35" class="heavy">cat</text>
+  <text x="55" y="55" class="small">is</text>
+  <text x="65" y="55" class="Rrrrr">Grumpy!</text>
+</svg>
 </div>
 </body>
 </html>
